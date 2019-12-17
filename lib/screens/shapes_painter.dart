@@ -70,6 +70,33 @@ class ShapesPainter extends CustomPainter {
     paint.color = Color(0xff354569);
     paint.strokeWidth = 4;
     canvas.drawLine(hoursP1, hoursP2, paint);
+
+    // External lines of the clock
+
+    for (var i = 0; i < 60; i++) {
+      // Calculate line position
+      double minute = 360 / 60 * i;
+
+      // Set style for every 5 minutes
+      paint.color = (i % 5 == 0) ? Color(0xff65d1ba) : Colors.white;
+      paint.strokeWidth = (i % 5 == 0) ? 4 : 1;
+
+      int distance = (i % 5 == 0) ? 10 : 15;
+
+      double x1 = (size.width / 2) +
+          (size.width / 3 + distance) * cos(Vector.radians(minute));
+      double y1 = (size.height / 2) +
+          (size.width / 3 + distance) * sin(Vector.radians(minute));
+      final p1 = Offset(x1, y1);
+
+      double x2 = (size.width / 2) +
+          (size.width / 3 + 30) * cos(Vector.radians(minute));
+      double y2 = (size.height / 2) +
+          (size.width / 3 + 30) * sin(Vector.radians(minute));
+      final p2 = Offset(x2, y2);
+
+      canvas.drawLine(p1, p2, paint);
+    }
   }
 
   @override
