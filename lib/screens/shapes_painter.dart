@@ -43,6 +43,19 @@ class ShapesPainter extends CustomPainter {
     paint.color = Color(0xff65d1ba);
     paint.strokeWidth = 2;
     canvas.drawLine(secondsP1, secondsP2, paint);
+
+    // Line of minutes of the clock
+    final minutesP1 = center;
+    double minutesDegree = 360 / 60 * now.minute;
+    x = (size.width / 2) +
+        (size.width / 3 - 40) * cos(Vector.radians(minutesDegree));
+    y = (size.height / 2) +
+        (size.height / 3 - 40) * sin(Vector.radians(minutesDegree));
+
+    final minutesP2 = Offset(x, y);
+    paint.color = Color(0xff354569);
+    paint.strokeWidth = 3;
+    canvas.drawLine(minutesP1, minutesP2, paint);
   }
 
   @override
