@@ -35,7 +35,7 @@ class ShapesPainter extends CustomPainter {
     final secondsP1 = center;
     double secondsDegree = 360 / 60 * now.second;
     double x = (size.width / 2) +
-        (size.width / 3 - 20) * cos(Vector.radians(secondsDegree));
+        (size.height / 3 - 20) * cos(Vector.radians(secondsDegree));
     double y = (size.height / 2) +
         (size.height / 3 - 20) * sin(Vector.radians(secondsDegree));
 
@@ -72,7 +72,6 @@ class ShapesPainter extends CustomPainter {
     canvas.drawLine(hoursP1, hoursP2, paint);
 
     // External lines of the clock
-
     for (var i = 0; i < 60; i++) {
       // Calculate line position
       double minute = 360 / 60 * i;

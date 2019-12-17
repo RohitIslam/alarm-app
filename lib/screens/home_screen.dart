@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import './shapes_painter.dart';
+import '../widgets/clock.dart';
+import '../models/shapes_painter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -23,9 +24,9 @@ class _HomeScreenState extends State<HomeScreen>
       initialIndex: 0,
     );
 
-    // _timeString = _formatDateTime(DateTime.now());
+    _timeString = _formatDateTime(DateTime.now());
 
-    // Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
+    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
 
     super.initState();
   }
@@ -43,6 +44,10 @@ class _HomeScreenState extends State<HomeScreen>
     setState(() {
       _timeString = formatDateTime;
     });
+  }
+
+  String getTimeString() {
+    return _timeString.toString();
   }
 
   @override
@@ -82,22 +87,8 @@ class _HomeScreenState extends State<HomeScreen>
               controller: _tabController,
               children: <Widget>[
                 // Clock
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: CustomPaint(
-                          painter: ShapesPainter(),
-                          child: Container(
-                            height: 500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                // .....
+                Clock(getTimeString),
+                // Alarm
                 Container(
                   child: Column(
                     children: <Widget>[
@@ -108,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                 ),
-                // .....
+                // Timer
                 Container(
                   child: Column(
                     children: <Widget>[
@@ -119,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                 ),
-                // .....
+                // Stopwatch
                 Container(
                   child: Column(
                     children: <Widget>[
