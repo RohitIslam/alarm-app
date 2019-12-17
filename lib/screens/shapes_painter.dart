@@ -56,6 +56,20 @@ class ShapesPainter extends CustomPainter {
     paint.color = Color(0xff354569);
     paint.strokeWidth = 3;
     canvas.drawLine(minutesP1, minutesP2, paint);
+
+    // Line of hours of the clock
+    final hoursP1 = center;
+    // Set hours to 12hr format
+    double hoursDegree = 360 / 12 * (now.hour - 12);
+    x = (size.width / 2) +
+        (size.width / 3 - 40) * cos(Vector.radians(hoursDegree));
+    y = (size.height / 2) +
+        (size.height / 3 - 40) * sin(Vector.radians(hoursDegree));
+
+    final hoursP2 = Offset(x, y);
+    paint.color = Color(0xff354569);
+    paint.strokeWidth = 4;
+    canvas.drawLine(hoursP1, hoursP2, paint);
   }
 
   @override
