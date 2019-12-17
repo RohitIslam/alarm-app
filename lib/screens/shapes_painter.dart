@@ -30,11 +30,24 @@ class ShapesPainter extends CustomPainter {
     paint.color = Colors.white;
     canvas.drawCircle(center, (size.width / 3) - 5, paint);
     paint.strokeCap = StrokeCap.round;
+
+    // Line of seconds of the clock
+    final secondsP1 = center;
+    double secondsDegree = 360 / 60 * now.second;
+    double x = (size.width / 2) +
+        (size.width / 3 - 20) * cos(Vector.radians(secondsDegree));
+    double y = (size.height / 2) +
+        (size.height / 3 - 20) * sin(Vector.radians(secondsDegree));
+
+    final secondsP2 = Offset(x, y);
+    paint.color = Color(0xff65d1ba);
+    paint.strokeWidth = 2;
+    canvas.drawLine(secondsP1, secondsP2, paint);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     // TODO: implement shouldRepaint
-    return null;
+    return true;
   }
 }
