@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import './shapes_painter.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -21,9 +23,9 @@ class _HomeScreenState extends State<HomeScreen>
       initialIndex: 0,
     );
 
-    _timeString = _formatDateTime(DateTime.now());
+    // _timeString = _formatDateTime(DateTime.now());
 
-    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
+    // Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
 
     super.initState();
   }
@@ -85,7 +87,12 @@ class _HomeScreenState extends State<HomeScreen>
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.all(8),
-                        child: Text("hi"),
+                        child: CustomPaint(
+                          painter: ShapesPainter(),
+                          child: Container(
+                            height: 500,
+                          ),
+                        ),
                       ),
                     ],
                   ),
