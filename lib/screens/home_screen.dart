@@ -93,9 +93,9 @@ class _HomeScreenState extends State<HomeScreen>
                 Container(
                   child: ListView(
                     children: <Widget>[
-                      AlarmItem(_timeString, false),
-                      AlarmItem(_timeString, false),
-                      AlarmItem(_timeString, false),
+                      alarmItem(_timeString, false),
+                      alarmItem(_timeString, true),
+                      alarmItem(_timeString, false),
                     ],
                   ),
                 ),
