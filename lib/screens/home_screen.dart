@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../widgets/clock.dart';
-import '../models/shapes_painter.dart';
+import '../widgets/alarm_item.dart';
+// import '../models/shapes_painter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -90,12 +91,11 @@ class _HomeScreenState extends State<HomeScreen>
                 Clock(getTimeString),
                 // Alarm
                 Container(
-                  child: Column(
+                  child: ListView(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Text("hi"),
-                      ),
+                      AlarmItem(_timeString, false),
+                      AlarmItem(_timeString, false),
+                      AlarmItem(_timeString, false),
                     ],
                   ),
                 ),
