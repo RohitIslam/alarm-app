@@ -51,79 +51,95 @@ class _HomeScreenState extends State<HomeScreen>
     return _timeString.toString();
   }
 
+  Widget _bottomButtons() {
+    return _tabController.index == 1
+        ? FloatingActionButton(
+            onPressed: () => Navigator.pushNamed(context, '/add-alarm'),
+            backgroundColor: Color(0xff65d1ba),
+            child: Icon(
+              Icons.add,
+              size: 20,
+            ),
+          )
+        : null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Theme.of(context).primaryColor,
-            bottom: TabBar(
-              controller: _tabController,
-              indicatorColor: Theme.of(context).accentColor,
-              indicatorWeight: 4,
-              tabs: <Widget>[
-                Tab(
-                  icon: Icon(Icons.access_time),
-                  text: "Clock",
-                ),
-                Tab(
-                  icon: Icon(Icons.alarm),
-                  text: "Alarm",
-                ),
-                Tab(
-                  icon: Icon(Icons.hourglass_empty),
-                  text: "Timer",
-                ),
-                Tab(
-                  icon: Icon(Icons.timer),
-                  text: "Stopwatch",
-                ),
-              ],
-            ),
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColor,
+          bottom: TabBar(
+            controller: _tabController,
+            indicatorColor: Theme.of(context).accentColor,
+            indicatorWeight: 4,
+            tabs: <Widget>[
+              Tab(
+                icon: Icon(Icons.access_time),
+                text: "Clock",
+              ),
+              Tab(
+                icon: Icon(Icons.alarm),
+                text: "Alarm",
+              ),
+              Tab(
+                icon: Icon(Icons.hourglass_empty),
+                text: "Timer",
+              ),
+              Tab(
+                icon: Icon(Icons.timer),
+                text: "Stopwatch",
+              ),
+            ],
           ),
-          body: Container(
-            color: Theme.of(context).primaryColor,
-            child: TabBarView(
-              controller: _tabController,
-              children: <Widget>[
-                // Clock
-                Clock(getTimeString),
-                // Alarm
-                Container(
-                  child: ListView(
-                    children: <Widget>[
-                      alarmItem(_timeString, false),
-                      alarmItem(_timeString, true),
-                      alarmItem(_timeString, false),
-                    ],
-                  ),
+        ),
+        body: Container(
+          color: Theme.of(context).primaryColor,
+          child: TabBarView(
+            controller: _tabController,
+            children: <Widget>[
+              // Clock
+              Clock(getTimeString),
+              // Alarm
+              Container(
+                child: ListView(
+                  children: <Widget>[
+                    alarmItem(_timeString, false),
+                    alarmItem(_timeString, true),
+                    alarmItem(_timeString, false),
+                  ],
                 ),
-                // Timer
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Text("hi"),
-                      ),
-                    ],
-                  ),
+              ),
+              // Timer
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text("hi"),
+                    ),
+                  ],
                 ),
-                // Stopwatch
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Text("hi"),
-                      ),
-                    ],
-                  ),
+              ),
+              // Stopwatch
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text("hi"),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          )),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: _bottomButtons(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      ),
     );
   }
 }
