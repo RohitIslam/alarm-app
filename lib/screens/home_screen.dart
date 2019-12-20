@@ -25,9 +25,10 @@ class _HomeScreenState extends State<HomeScreen>
       initialIndex: 0,
     );
 
-    _timeString = _formatDateTime(DateTime.now());
-
-    Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
+    setState(() {
+      _timeString = _formatDateTime(DateTime.now());
+      Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
+    });
 
     super.initState();
   }
@@ -118,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen>
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(8),
-                      child: Text("hi"),
+                      child: Text("hierer"),
                     ),
                   ],
                 ),
@@ -129,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen>
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(8),
-                      child: Text("hi"),
+                      child: Text("hi112"),
                     ),
                   ],
                 ),
