@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './circle_day.dart';
+
 class AddAlarm extends StatefulWidget {
   @override
   _AddAlarmState createState() => _AddAlarmState();
@@ -73,6 +75,17 @@ class _AddAlarmState extends State<AddAlarm> {
               onTap: () {
                 _selectTime(context);
               },
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                circleDay('Mon', context, false),
+                circleDay('Sun', context, true),
+                circleDay('Tue', context, false),
+              ],
             ),
           ],
         ),
