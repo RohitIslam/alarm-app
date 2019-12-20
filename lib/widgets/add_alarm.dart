@@ -85,6 +85,10 @@ class _AddAlarmState extends State<AddAlarm> {
                 circleDay('Mon', context, false),
                 circleDay('Sun', context, true),
                 circleDay('Tue', context, false),
+                circleDay('Wed', context, false),
+                circleDay('Thu', context, false),
+                circleDay('Fri', context, false),
+                circleDay('Sat', context, false),
               ],
             ),
             SizedBox(
