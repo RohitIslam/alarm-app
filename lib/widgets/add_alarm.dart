@@ -87,7 +87,72 @@ class _AddAlarmState extends State<AddAlarm> {
                 circleDay('Tue', context, false),
               ],
             ),
+            SizedBox(
+              height: 60,
+            ),
+            SizedBox(
+              height: 2,
+              child: Container(
+                color: Colors.white30,
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.notifications_none,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Alarm Notification",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2,
+              child: Container(
+                color: Colors.white30,
+              ),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.check_box,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Vibrate",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2,
+              child: Container(
+                color: Colors.white30,
+              ),
+            ),
+            FlatButton(
+              color: Theme.of(context).accentColor,
+              child: Text(
+                "Save",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: () => Navigator.pop(context),
+            )
           ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pop(context),
+        backgroundColor: Colors.white,
+        child: Icon(
+          Icons.delete,
+          size: 20,
+          color: Theme.of(context).accentColor,
         ),
       ),
     );

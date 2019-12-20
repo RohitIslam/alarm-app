@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './screens/home_screen.dart';
+import './widgets/add_alarm.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
       ),
       home: HomeScreen(),
       initialRoute: '/',
-      routes: {},
+      routes: {
+        '/add-alarm': (context) => AddAlarm(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
